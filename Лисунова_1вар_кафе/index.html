@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Форма заказа в кафе</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <form>
+        <h1>Форма заказа в кафе</h1>
+        <label for="manager">Менеджер:</label>
+        <select id="manager" name="manager">
+            <option value="Мария">Мария</option>
+            <option value="Александр">Александр</option>
+            <option value="Елена">Елена</option>
+        </select>
+        <br>
+
+        <label for="surname">Фамилия:</label>
+        <input type="text" id="surname" name="surname" required>
+        <br>
+
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+
+        <label for="patronymic">Отчество:</label>
+        <input type="text" id="patronymic" name="patronymic">
+        <br>
+
+        <label for="dishes">Блюда:</label>
+        <select id="dishes" name="dishes">
+            <option value="Стейк">Стейк</option>
+            <option value="Салат">Салат</option>
+            <option value="Суп">Суп</option>
+        </select>
+        <label for="quantity">Количество:</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" required>
+        <br>
+
+        <label for="total">Сумма заказа:</label>
+        <input type="text" id="total" name="total" readonly>
+        <br>
+
+        <label for="time">Время приготовления:</label>
+        <input type="time" id="time" name="time" required>
+        <br>
+
+        <label for="payment">Способ оплаты:</label>
+        <input type="radio" id="cash" name="payment" value="Наличные" required>
+        <label for="cash">Наличные</label>
+        <input type="radio" id="card" name="payment" value="Карта" required>
+        <label for="card">Карта</label>
+        <br>
+
+        <input type="button" value="Сформировать заказ" onclick="validateOrder()">
+    </form>
+
+    <div id="order-summary" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">✖</span>
+            <h2>Подтверждение заказа:</h2>
+            <p>Менеджер: <span id="manager-summary"></span></p>
+            <p>ФИО: <span id="customer-summary"></span></p>
+            <p>Блюдо: <span id="dishes-summary"></span></p>
+            <p>Количество: <span id="quantity-summary"></span></p>
+            <p>Сумма заказа: <span id="total-summary"></span></p>
+            <p>Время приготовления: <span id="time-summary"></span></p>
+            <p>Способ оплаты: <span id="payment-summary"></span></p>
+            <input type="button" value="Подтвердить" onclick="confirmOrder()">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
